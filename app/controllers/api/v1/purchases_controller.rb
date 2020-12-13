@@ -26,7 +26,7 @@ class Api::V1::PurchasesController < ApplicationController
     candle.return_candle
     candle.save
     purchase.destroy
-    render json: candle
+    render json: purchase
   end
 
 end

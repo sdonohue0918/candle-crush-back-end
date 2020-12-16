@@ -2,8 +2,7 @@ class Api::V1::PurchasesController < ApplicationController
   # skip_before_action :authorized, only: [:create]
   
   def index
-    
-    # current_user = User.find(params[:user])
+  
     purchases = current_user.purchases
     render json: purchases.to_json(include: [:candle])
   end
@@ -16,6 +15,9 @@ class Api::V1::PurchasesController < ApplicationController
       candle.purchase_candle
       candle.save
     end
+
+    candles = Candle.all
+    render json: candles
   end
 
   def destroy
